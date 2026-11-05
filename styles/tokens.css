@@ -1,0 +1,15 @@
+:root {
+  --paper: #eee9da;
+  --paper-light: #f6f3ea;
+  --paper-deep: #e5dec9;
+  --red: #d1000a;
+  --red-dark: #a80008;
+  --ink: #000000;
+  --charcoal: #3c3a37;
+  --muted: #605d55;
+  --line: rgba(60, 58, 55, 0.14);
+  --cellar: #191714;
+  --section: clamp(72px, 9vw, 144px);
+  --header-height: 92px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

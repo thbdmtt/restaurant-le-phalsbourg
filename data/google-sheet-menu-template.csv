@@ -1,0 +1,17 @@
+id,category_slug,category_fr,category_en,title_fr,title_en,description_fr,description_en,price,price_unit,dietary_tags,available,order
+menu-01,entrees,Entrées,Starters,Œuf mayo à la soubressade et œufs de truite,Egg mayonnaise with sobrassada and trout roe,,,12,,,TRUE,10
+menu-02,entrees,Entrées,Starters,Brocolinis rôtis,Roasted broccolini,Vinaigrette pralinée et champignons,Praline vinaigrette and mushrooms,12,,,TRUE,20
+menu-03,entrees,Entrées,Starters,Soufflé à l’Abondance,Abondance cheese soufflé,Salade aux herbes fraîches,Fresh herb salad,13,,vegetarian,TRUE,30
+menu-04,entrees,Entrées,Starters,Terrine de lapin,Rabbit terrine,Échalotes au moût de raisin et cerfeuil,Shallots in grape must and chervil,16,,,TRUE,40
+menu-05,entrees,Entrées,Starters,Déclinaison d’huîtres Royales d’Isigny n° 2,"Royales d’Isigny No. 2 oysters, prepared several ways",,,18,,,TRUE,50
+menu-06,plats,Plats,Main courses,Filet de mulet snacké,Pan-seared grey mullet fillet,Céleri branche et écume d’oseille,Celery and sorrel foam,29,,,TRUE,60
+menu-07,plats,Plats,Main courses,Onglet de bœuf poêlé,Pan-seared hanger steak,Pommes de terre rattes aux oignons nouveaux,Ratte potatoes with spring onions,32,,,TRUE,70
+menu-08,plats,Plats,Main courses,Sauté de lotte à la bourguignonne,Bourguignon-style monkfish,,,40,,,TRUE,80
+menu-09,plats,Plats,Main courses,Lièvre en deux services,Hare served in two courses,Râbles et parmentier,"Saddle, followed by hare parmentier",55,,,TRUE,90
+menu-10,plats,Plats,Main courses,Double côte de cochon rôtie,Roast double pork chop,Purée de pommes de terre onctueuse,Silky mashed potatoes,9,100g,,TRUE,100
+menu-11,fromages,Fromages,Cheese,Assiette de fromages,Cheese selection,,,14,,,TRUE,110
+menu-12,desserts,Desserts,Desserts,Crème brûlée à la vanille Bourbon,Bourbon vanilla crème brûlée,,,12,,,TRUE,120
+menu-13,desserts,Desserts,Desserts,Moelleux au chocolat,Warm chocolate cake,Glace vanille,Vanilla ice cream,13,,,TRUE,130
+menu-14,desserts,Desserts,Desserts,Crumble aux poires caramélisées,Caramelised pear crumble,Glace pistache,Pistachio ice cream,13,,,TRUE,140
+menu-15,desserts,Desserts,Desserts,Riz au lait,Rice pudding,"Caramel laitier, vanille Bourbon et noisettes grillées","Creamy caramel, Bourbon vanilla and toasted hazelnuts",12,,,TRUE,150
+menu-16,formules,Au déjeuner,At lunchtime,Formule déjeuner,Lunch menu,,,35,,,TRUE,160

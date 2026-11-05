@@ -1,0 +1,40 @@
+id,category_slug,category_fr,category_en,title_fr,title_en,description_fr,description_en,region,appellation,domaine,cuvee,vintage,price_glass,price_75cl,price_150cl,serving,available,order,source_page
+vin-01,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Ricard,Ricard,,,,,,,,4,,,,TRUE,10,2
+vin-02,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Martini,Martini,,,,,,,,8,,,,TRUE,20,2
+vin-03,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Kir,Kir,,,,,,,,9,,,,TRUE,30,2
+vin-04,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Kir Royal,Kir Royal,,,,,,,,15,,,,TRUE,40,2
+vin-05,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Apérol Spritz,Apérol Spritz,,,,,,,,10,,,,TRUE,50,2
+vin-06,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Saint-Germain Spritz,Saint-Germain Spritz,,,,,,,,12,,,,TRUE,60,2
+vin-07,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Phalsbourg Spritz,Phalsbourg Spritz,,,,,,,,12,,,,TRUE,70,2
+vin-08,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Gin Tonic,Gin Tonic,,,,,,,,12,,,,TRUE,80,2
+vin-09,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Gin Tonic The Gardener,Gin Tonic The Gardener,,,,,,,,14,,,,TRUE,90,2
+vin-10,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Vodka Tonic,Vodka Tonic,,,,,,,,12,,,,TRUE,100,2
+vin-11,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Vodka Tonic Philosophe,Vodka Tonic Philosophe,,,,,,,,14,,,,TRUE,110,2
+vin-12,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Négroni,Négroni,,,,,,,,12,,,,TRUE,120,2
+vin-13,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Americano,Americano,,,,,,,,12,,,,TRUE,130,2
+vin-14,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Bière ALARYK — Blonde ou IPA,ALARYK beer — Blonde or IPA,,,,,,,,9,,,33cl,TRUE,140,2
+vin-15,aperitifs,Apéritifs & cocktails,Apéritifs & cocktails,Scotch Seven Yards,Seven Yards Scotch,,,,,,,,14,,,,TRUE,150,2
+vin-16,verres,Vins au verre,Wines by the glass,"Virginie T, 15 crus, V4","Virginie T, 15 crus, V4",,,Champagne,Champagne,Virginie T,"15 crus, V4",,15,,,14cl,TRUE,160,2
+vin-17,verres,Vins au verre,Wines by the glass,Loup Y Es-Tu ?,Loup Y Es-Tu ?,,,Languedoc,Vin de France,Famille Orliac,Loup Y Es-Tu ?,2024,9,,,14cl,TRUE,170,2
+vin-18,verres,Vins au verre,Wines by the glass,"Saumur, Fer Aigu","Saumur, Fer Aigu",,,Loire,Saumur,PA Vadé,Fer Aigu,2024,9,,,14cl,TRUE,180,2
+vin-19,verres,Vins au verre,Wines by the glass,Mâcon-Villages,Mâcon-Villages,,,Bourgogne,Mâcon-Villages,Domaine des Gandines,,2025,10,,,14cl,TRUE,190,2
+vin-20,verres,Vins au verre,Wines by the glass,La Petite Bellane,La Petite Bellane,,,Rhône,Côtes du Rhône Villages,Clos Bellane,La Petite Bellane,2023,9,,,14cl,TRUE,200,2
+vin-21,verres,Vins au verre,Wines by the glass,"Saumur, Les Moulins","Saumur, Les Moulins",,,Loire,Saumur,Romain Guiberteau,Les Moulins,,10,,,14cl,TRUE,210,2
+vin-22,verres,Vins au verre,Wines by the glass,Bourgogne Pinot Noir,Bourgogne Pinot Noir,,,Bourgogne,Bourgogne,Vaudoisey-Creusefond,Pinot Noir,2023,10,,,14cl,TRUE,220,2
+vin-23,bouteilles,Bouteilles & magnums,Bottles & magnums,Atmosphères,Atmosphères,,,Loire,Pétillant naturel,Jo Landron,Atmosphères,,,38,,,TRUE,230,3
+vin-24,bouteilles,Bouteilles & magnums,Bottles & magnums,Brut Réserve,Brut Réserve,,,Champagne,Champagne,Charles Heidsieck,Brut Réserve,,,95,,,TRUE,240,3
+vin-25,bouteilles,Bouteilles & magnums,Bottles & magnums,Les Chétillons,Les Chétillons,,,Champagne,Champagne Grand Cru,Pierre Peters,Les Chétillons,2017,,300,,,TRUE,250,3
+vin-26,bouteilles,Bouteilles & magnums,Bottles & magnums,"Riesling, Les Grandes Lignes","Riesling, Les Grandes Lignes",,,Alsace,Alsace,Domaine Léon Boesch,Les Grandes Lignes,2023,,40,,,TRUE,260,5
+vin-27,bouteilles,Bouteilles & magnums,Bottles & magnums,"Montagny 1er Cru, Madeleine","Montagny 1er Cru, Madeleine",,,Bourgogne,Montagny 1er Cru,Domaine Claudie Jobard,Madeleine,2022,,97,,,TRUE,270,9
+vin-28,bouteilles,Bouteilles & magnums,Bottles & magnums,Mâcon-Villages,Mâcon-Villages,,,Bourgogne,Mâcon-Villages,Domaine des Gandines,,2025,,37,,,TRUE,280,9
+vin-29,bouteilles,Bouteilles & magnums,Bottles & magnums,"Marsannay, Le Finage","Marsannay, Le Finage",,,Bourgogne,Marsannay,René Bouvier,Le Finage,2022,,72,144,,TRUE,290,7
+vin-30,bouteilles,Bouteilles & magnums,Bottles & magnums,"Volnay 1er Cru, Santenots","Volnay 1er Cru, Santenots",,,Bourgogne,Volnay 1er Cru,Nicolas Rossignol,Santenots,2020,,235,470,,TRUE,300,8
+vin-31,bouteilles,Bouteilles & magnums,Bottles & magnums,"Fleurie, Roche Guillon","Fleurie, Roche Guillon",,,Beaujolais,Fleurie,"Domaine de Fa, A. Graillot",Roche Guillon,2023,,53,106,,TRUE,310,9
+vin-32,bouteilles,Bouteilles & magnums,Bottles & magnums,"Saumur, Fer Aigu","Saumur, Fer Aigu",,,Loire,Saumur,PA Vadé,Fer Aigu,2024,,33,,,TRUE,320,12
+vin-33,bouteilles,Bouteilles & magnums,Bottles & magnums,"Sancerre, Florès","Sancerre, Florès",,,Loire,Sancerre,Vincent Pinard,Florès,2024,,50,,,TRUE,330,14
+vin-34,bouteilles,Bouteilles & magnums,Bottles & magnums,"Sancerre, Vendanges Entières","Sancerre, Vendanges Entières",,,Loire,Sancerre,Vincent Pinard,Vendanges Entières,2023,,120,240,,TRUE,340,14
+vin-35,bouteilles,Bouteilles & magnums,Bottles & magnums,Blanc Etc…,Blanc Etc…,,,Loire,Vin de France,Didier Dagueneau,Blanc Etc…,2018,,173,,,TRUE,350,14
+vin-36,bouteilles,Bouteilles & magnums,Bottles & magnums,Silex,Silex,,,Loire,Vin de France,Didier Dagueneau,Silex,2022,,320,640,,TRUE,360,14
+vin-37,bouteilles,Bouteilles & magnums,Bottles & magnums,Corbières-Boutenac,Corbières-Boutenac,,,Languedoc,Corbières-Boutenac,Château Fabre-Gasparets,,2022,,45,90,,TRUE,370,19
+vin-38,bouteilles,Bouteilles & magnums,Bottles & magnums,"Côtes du Roussillon, Mirmanda","Côtes du Roussillon, Mirmanda",,,Roussillon,Côtes du Roussillon,Mirmanda,,2022,,77,154,,TRUE,380,19
+vin-39,bouteilles,Bouteilles & magnums,Bottles & magnums,"Saint-Estèphe, Château Haut-Marbuzet","Saint-Estèphe, Château Haut-Marbuzet",,,Bordeaux,Saint-Estèphe,Château Haut-Marbuzet,,2017,,110,,,TRUE,390,22
