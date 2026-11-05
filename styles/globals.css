@@ -174,13 +174,10 @@ figcaption {
   background: var(--red-dark);
   border-color: var(--red-dark);
 }
-.button span,
-.text-link span {
-  transition: transform 0.3s var(--ease);
-}
-.button:hover span,
-.text-link:hover span {
-  transform: translate(3px, -3px);
+.icon { display: inline-block; flex: none; vertical-align: middle; }
+.icon-ArrowUpRight { transition: transform 240ms var(--ease); }
+@media (hover: hover) {
+  a:hover > .icon-ArrowUpRight, button:hover > .icon-ArrowUpRight { transform: translate(2px, -2px); }
 }
 .text-link {
   display: inline-flex;
@@ -470,15 +467,16 @@ html:has(.mobile-dialog[open]) {
   overflow: visible;
   min-width: 0;
 }
-.hero-picture > .photo {
+.hero-image-frame > .photo {
   aspect-ratio: 1.15;
   height: auto;
   object-fit: cover;
 }
+.hero-image-frame { position: relative; }
 .hero-picture img {
   object-position: 52% 50%;
 }
-.hero-picture:hover > .photo {
+.hero-picture:hover .hero-image-frame > .photo {
   transform: none;
 }
 .hero-picture figcaption {
@@ -1827,7 +1825,7 @@ html:has(.mobile-dialog[open]) {
   .hero-copy h1 {
     font-size: 80px;
   }
-  .hero-picture > .photo {
+  .hero-image-frame > .photo {
     aspect-ratio: 0.83;
   }
   .hero-practical {
@@ -2048,7 +2046,7 @@ html:has(.mobile-dialog[open]) {
     margin-top: 22px;
     order: 2;
   }
-  .hero-picture > .photo {
+  .hero-image-frame > .photo {
     aspect-ratio: 1.35;
   }
   .hero-picture figcaption {
@@ -2847,47 +2845,50 @@ html:has(.mobile-dialog[open]) {
 }
 
 @media (max-width: 960px) {
-  .site-footer {
-    padding-bottom: 110px;
-  }
+  .site-footer { padding-bottom: calc(40px + env(safe-area-inset-bottom)); }
   .mobile-action-bar {
     display: grid;
-    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr 1fr;
     position: fixed;
     z-index: 45;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    left: 12px;
-    right: 12px;
-    max-width: 480px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    left: 16px;
+    right: 16px;
+    max-width: 340px;
+    height: 46px;
     margin-inline: auto;
-    background: rgba(246, 243, 234, 0.92);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(60, 58, 55, 0.2);
-    box-shadow: 0 6px 30px #2c241b14;
-    padding: 5px;
-    border-radius: 3px;
+    padding: 3px;
+    border: 1px solid #b3afa4;
+    border-radius: 999px;
+    background: rgba(246, 243, 234, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 20px #2c241b14;
+    transform: translateY(120%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease, visibility 320ms;
+  }
+  .mobile-action-bar[data-visible="true"] {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   .mobile-action-bar > a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    min-height: 48px;
-    font-size: 12px;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 6px;
+    gap: 7px;
+    font-size: 11px;
+    white-space: nowrap;
+    border-radius: 999px;
   }
-  .mobile-action-bar > a + a {
-    border-left: 1px solid var(--line);
-  }
-  .mobile-action-bar .reserve {
-    background: var(--red);
-    color: var(--paper-light);
-  }
-  .mobile-action-bar > a > span {
-    font-size: 18px;
-  }
-  .mobile-action-bar > a:last-child > span {
-    transform: rotate(-30deg);
-  }
+  .mobile-action-bar .reserve { background: var(--red); color: var(--paper-light); }
 }
 
 /* A photograph, a welcome and the restaurant's original wine list. */
@@ -3090,4 +3091,18 @@ html:has(.mobile-dialog[open]) {
   .distinction-emblems { gap: 16px; justify-content: space-between; }
   .distinction-emblems > .photo { max-width: 110px; }
   .recognition .distinction-emblems { min-width: 0; width: 100%; }
+}
+
+@media (max-width: 960px) {
+  .hero-stamp {
+    width: clamp(80px, 22vw, 90px);
+    height: clamp(80px, 22vw, 90px);
+    bottom: 18px;
+    right: 18px;
+    left: auto;
+    font-size: 18px;
+    line-height: 1.05;
+    outline-width: 3px;
+  }
+  .hero-stamp i { font-size: 7px; margin-top: 7px; }
 }

@@ -1,4 +1,5 @@
 "use client";
+import { Icon } from "./icon";
 import { useEffect, useRef } from "react";
 import type { Locale, Slug, Dictionary } from "@/lib/i18n";
 import { href, interpolate } from "@/lib/format";
@@ -70,7 +71,7 @@ export function Header({
       <nav className="editorial-nav" aria-label={ui.editorialNav}>
         {(["presse", "recrutement"] as const).map((s) => (
           <a key={s} href={href(locale, s)} aria-current={slug === s ? "page" : undefined}>
-            {nav[s]} <span aria-hidden="true">↗</span>
+            {nav[s]} <Icon name="ArrowUpRight" />
           </a>
         ))}
       </nav>
@@ -79,7 +80,7 @@ export function Header({
         {languages}
         <a className="button compact header-book" href={restaurant.reservation}>
           {ui.reserveShort}
-          <span aria-hidden="true">↗</span>
+          <Icon name="ArrowUpRight" />
         </a>
         <button
           className="menu-toggle"
@@ -107,7 +108,7 @@ export function Header({
               onClick={() => dialog.current?.close()}
               aria-label={ui.closeMenu}
             >
-              ×
+              <Icon name="Close" />
             </button>
           </div>
           <nav aria-label={ui.mainNav}>
@@ -145,7 +146,7 @@ export function Header({
           <div className="mobile-bottom">
             {languages}
             <a className="button" href={restaurant.reservation}>
-              {ui.reserveShort} ↗
+              {ui.reserveShort} <Icon />
             </a>
           </div>
         </div>

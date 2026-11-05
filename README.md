@@ -112,3 +112,12 @@ L’accueil présente une composition de trois photos culinaires, trois flacons,
 `components/editorial-sequences.tsx` rassemble les sections partagées. Huit médias supplémentaires ont été récupérés depuis les originaux Wix listés dans l’archive, puis optimisés en AVIF/WebP par `scripts/enrich-assets.mjs` ; ce script de préparation nécessite l’archive locale. Tous les fichiers utiles à l’affichage sont publiés dans `public/images/`.
 
 La recette navigateur vérifie le téléphone exact `tel:+33140570441` dans le HTML serveur et dans le DOM après chargement, sur chaque page. Elle contrôle aussi les routes anglaises, les redirections, les liens de langue et six largeurs (320, 390, 768, 1280, 1440, 3840 px).
+
+
+## Finitions mobiles
+
+Toutes les icônes d’interface sont des SVG inline dans `components/icon.tsx` (flèche, téléphone, carte, téléchargement, copie et fermeture). Aucun glyphe de police n’est utilisé comme icône. Un test parcourt les composants, les pages et les dictionnaires pour prévenir leur réintroduction.
+
+`components/mobile-action-bar.tsx` affiche une pilule de 340 × 46 px maximum, avec prise en compte de la zone de sécurité du téléphone. Elle est initialement masquée, reste absente jusqu’à 420 px, se masque à la descente et réapparaît à la remontée ou après 800 ms d’arrêt. Le footer et l’ouverture du dialogue la masquent toujours. Quand elle est masquée, elle est également `inert`, retirée du parcours clavier et de l’arbre d’accessibilité. Les changements de hauteur liés à la barre d’adresse mobile sont pris en compte. Le macaron est ancré dans un cadre photographique distinct de la légende.
+
+`npm run test:browser` inclut les tests de scroll, pause, footer, dialogue, SVG, macaron et mouvement réduit de `scripts/mobile-ui-check.mjs`. Cette fonction peut aussi être exécutée avec un navigateur WebKit installé via `npx playwright install webkit`.

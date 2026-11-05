@@ -1,3 +1,4 @@
+import { checkMobileUI } from "./mobile-ui-check.mjs";
 import { chromium } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -70,6 +71,8 @@ try {
       assert.deepEqual(await telephone.evaluateAll(links => [...new Set(links.map(a => a.getAttribute("href")))]), ["tel:+33140570441"]);
       assert.equal(await page.locator('a[href^="about:invalid"]').count(), 0);
       assert.equal(await page.locator('.editorial-nav a').count(), 2);
+      assert.ok(!/[\u2190-\u21ff\u2261\u00d7\u29c9\uFE0F]|[\u2600-\u27BF\u{1F000}-\u{1FAFF}]/u.test(await page.locator('body').innerText()), `${url}: no Unicode icons`);
+      assert.equal(await page.locator('.mobile-action-bar svg').count(), 3);
       if (!slug) {
         assert.equal(await page.locator('.culinary-mosaic figure').count(), 3);
         assert.equal(await page.locator('.cellar-triptych figure').count(), 3);
@@ -288,6 +291,7 @@ try {
     await page.locator('.header-actions .languages a[lang="en"]').click();
     await page.waitForURL(base + route("en", slug));
   }
+  await checkMobileUI(browser, base);
   assert.deepEqual(errors, []);
   await writeFile(
     "review/browser-report.json",

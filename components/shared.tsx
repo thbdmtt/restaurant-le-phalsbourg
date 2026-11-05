@@ -1,3 +1,5 @@
+import { MobileActionBar } from "./mobile-action-bar";
+import { Icon } from "./icon";
 import { preload } from "react-dom";
 import manifest from "@/data/media-manifest.json";
 import {
@@ -106,7 +108,7 @@ export function ArrowLink({
   return (
     <a className={`text-link${light ? " light" : ""}`} href={target}>
       {children}
-      <span aria-hidden="true">↗</span>
+      <Icon name="ArrowUpRight" />
     </a>
   );
 }
@@ -192,20 +194,10 @@ export function Footer({ locale }: { locale: Locale }) {
           <span>{d.ui.sinceLabel}</span>
         </div>
       </footer>
-      <nav className="mobile-action-bar" aria-label={d.ui.mobileActions}>
-        <a className="reserve" href={restaurant.reservation}>
-          <span aria-hidden="true">↗</span>
-          {d.ui.reserveShort}
-        </a>
-        <a href={href(locale, "carte")}>
-          <span aria-hidden="true">≡</span>
-          {d.ui.menu}
-        </a>
-        <a href={restaurant.phoneHref}>
-          <span aria-hidden="true">↗</span>
-          {d.ui.call}
-        </a>
-      </nav>
+      <MobileActionBar locale={locale} labels={{
+        mobileActions: d.ui.mobileActions, reserveShort: d.ui.reserveShort,
+        menu: d.ui.menu, call: d.ui.call,
+      }} />
     </>
   );
 }
@@ -252,7 +244,7 @@ export function Visit({ locale }: { locale: Locale }) {
         <p>{d.home.visitText}</p>
         <a className="button" href={restaurant.reservation}>
           {d.ui.reserve}
-          <span aria-hidden="true">↗</span>
+          <Icon name="ArrowUpRight" />
         </a>
       </div>
       <div className="visit-details">

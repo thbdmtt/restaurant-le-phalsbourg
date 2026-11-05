@@ -1,3 +1,4 @@
+import { Icon } from "./icon";
 import {
   getDictionary,
   href,
@@ -31,29 +32,31 @@ export async function Home({ locale }: { locale: Locale }) {
           <div className="hero-ctas">
             <a className="button" href={restaurant.reservation}>
               {d.ui.reserve}
-              <span aria-hidden="true">↗</span>
+              <Icon name="ArrowUpRight" />
             </a>
             <ArrowLink href={href(locale, "carte")}>{h.foodLink}</ArrowLink>
           </div>
           <p className="hero-location">{e.neighbourhood}</p>
         </div>
         <figure className="hero-picture">
+          <div className="hero-image-frame">
           <Photo
             name="facade-monceau"
             locale={locale}
             priority
             sizes="(max-width: 760px) calc(100vw - 40px), 55vw"
           />
+
+          <span className="hero-stamp" aria-hidden="true">
+            <span>{e.stampTitle}</span>
+            <em>{e.stampItalic}</em>
+            <i>PARIS XVII</i>
+          </span>
+          </div>
           <figcaption>
             <span>01 / Le Phalsbourg</span>
             <span>{e.photoFacade}</span>
           </figcaption>
-          <span className="hero-stamp" aria-hidden="true">
-            {e.stampTitle}
-            <br />
-            <em>{e.stampItalic}</em>
-            <i>PARIS XVII</i>
-          </span>
         </figure>
         <div className="hero-practical">
           <span className="service-dot" aria-hidden="true" />
@@ -71,7 +74,7 @@ export async function Home({ locale }: { locale: Locale }) {
               .join(" & ")}
           </span>
           <a href={href(locale, "contact")}>
-            {e.address} <span aria-hidden="true">↗</span>
+            {e.address} <Icon name="ArrowUpRight" />
           </a>
         </div>
       </section>

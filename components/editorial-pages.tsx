@@ -1,3 +1,4 @@
+import { Icon } from "./icon";
 import { getDictionary, interpolate, type Locale, type Slug } from "@/lib/i18n";
 import { restaurant } from "@/lib/restaurant";
 import { EnquiryComposer } from "./enquiry-composer";
@@ -116,7 +117,7 @@ export function EditorialPage({
           </div>
           <p>{p.reservationText}</p>
           <a className="button" href={restaurant.reservation}>
-            {d.ui.reserve} ↗
+            {d.ui.reserve} <Icon />
           </a>
         </div>
         <div>

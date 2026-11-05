@@ -1,3 +1,4 @@
+import { Icon } from "./icon";
 import { getDictionary, price, type Locale } from "@/lib/i18n";
 import { restaurant } from "@/lib/restaurant";
 import { getMenu } from "@/lib/menu-sheet";
@@ -153,11 +154,11 @@ export function Wines({ locale }: { locale: Locale }) {
             aria-describedby="wine-pdf-note"
           >
             {p.openMenu}
-            <span aria-hidden="true">↗</span>
+            <Icon name="ArrowUpRight" />
           </a>
           <a className="text-link" href={restaurant.winePdf} download>
             {d.ui.download}
-            <span aria-hidden="true">↓</span>
+            <Icon name="Download" />
           </a>
         </div>
         <p className="wine-pdf-note" id="wine-pdf-note">

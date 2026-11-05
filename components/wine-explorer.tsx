@@ -1,4 +1,5 @@
 "use client";
+import { Icon } from "./icon";
 import { useState } from "react";
 import type { Dictionary, Locale } from "@/lib/i18n";
 import type { WineItem } from "@/lib/menu-schema";
@@ -118,7 +119,7 @@ export function WineExplorer({
         <div className="empty-selection">
           <p>{labels.empty}</p>
           <button className="text-link" onClick={() => setFilter("all")}>
-            {labels.reset} ↗
+            {labels.reset} <Icon />
           </button>
         </div>
       )}

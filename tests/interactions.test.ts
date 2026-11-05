@@ -76,3 +76,19 @@ test("translated routes preserve equivalent pages in both directions", async () 
     assert.equal(canonicalSlug("fr", slug), slug);
   }
 });
+
+
+test("UI source cannot reintroduce Unicode icons or emoji presentation selectors", async () => {
+  const { readdir, readFile } = await import("node:fs/promises");
+  const { join } = await import("node:path");
+  async function check(directory: string): Promise<void> {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const file = join(directory, entry.name);
+      if (entry.isDirectory()) await check(file);
+      else if (/\.(tsx?|json)$/.test(file)) {
+        assert.ok(!/[\u2190-\u21ff\u2261\u00d7\u29c9\uFE0F]|[\u2600-\u27BF\u{1F000}-\u{1FAFF}]/u.test(await readFile(file, "utf8")), file);
+      }
+    }
+  }
+  for (const directory of ["app", "components", "locales"]) await check(directory);
+});

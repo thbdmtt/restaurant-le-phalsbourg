@@ -86,3 +86,14 @@ Le défaut `about:invalid#zCSafez` n’a pas été reproduit lors du contrôle i
 Validation : builds Next.js et Cloudflare, typage et 15 tests réussis. La recette locale des 20 pages couvre 320, 390, 768, 1280, 1440 et 3840 px, les photos, les liens téléphoniques, les routes traduites et 20 audits d’accessibilité. Captures régénérées et inspectées dans `review/`, notamment les séquences photographiques, le header à 1280 px et les pages mobiles.
 
 La recette complète a également réussi sur le site Cloudflare publié : 20 pages, six largeurs, 20 audits d’accessibilité et zéro erreur.
+
+
+## Correction des icônes et de la barre mobile
+
+Les icônes textuelles ont été remplacées par des SVG inline (`currentColor`, trait de 1,5 px, extrémités arrondies) : flèche diagonale 13 px, téléphone et carte 14 px, téléchargement, copie, fermeture. Le contrôle des sources couvre `components/`, `app/` et `locales/` et interdit la réintroduction de glyphes d’icônes ou de sélecteurs d’émojis.
+
+La barre mobile est une pilule de 340 px maximum et 46 px de hauteur, centrée à 16 px plus la zone de sécurité du bas de l’écran. Elle est initialement invisible, masquée dans les 420 premiers pixels, à la descente, au footer et quand le dialogue mobile est ouvert. Elle revient à la remontée ou après une pause de 800 ms. Les liens sont retirés du parcours clavier et de l’arbre d’accessibilité lorsqu’elle est masquée. Les variations de hauteur du navigateur mobile réarment le délai sans révéler la barre dans les zones interdites. Les préférences de mouvement réduit sont respectées.
+
+Le macaron est ancré dans `.hero-image-frame`, indépendamment de la légende, avec une taille de 80 à 90 px et des marges internes sur mobile et tablette. Sa boîte, son contour et son texte sont contrôlés à 320, 390 et 768 px dans les deux langues.
+
+Build Next.js, build Cloudflare, typage et 16 tests réussis. La recette Chromium couvre les 20 pages, six largeurs de 320 à 3840 px et 20 audits d’accessibilité. Les scénarios mobiles FR/EN (scroll, pause, dialogue, footer, changement de hauteur, mouvement réduit) sont aussi exécutés dans WebKit. Ce sont des configurations mobiles simulées, pas des mesures sur appareils physiques. `review/home-mobile.png` et `review/menu-mobile.png` sont régénérées ; les vues rapprochées du hero et de la pilule ont été inspectées.

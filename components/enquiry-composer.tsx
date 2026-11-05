@@ -1,4 +1,5 @@
 "use client";
+import { Icon } from "./icon";
 import { useRef, useState } from "react";
 import type { Dictionary, Locale } from "@/lib/i18n";
 import { interpolate } from "@/lib/format";
@@ -192,11 +193,11 @@ export function EnquiryComposer({
         <div className="form-actions">
           <button type="submit" className="button">
             {labels.send}
-            <span aria-hidden="true">↗</span>
+            <Icon name="ArrowUpRight" />
           </button>
           <button type="button" className="text-link" onClick={copy}>
             {labels.copy}
-            <span aria-hidden="true">⧉</span>
+            <Icon name="Copy" />
           </button>
         </div>
         <p className="small-copy">{labels.note}</p>
