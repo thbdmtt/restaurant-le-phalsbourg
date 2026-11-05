@@ -1,3 +1,5 @@
+import { canonicalSlug, localizedSlug } from "@/lib/format";
+import { Atmosphere } from "@/components/editorial-sequences";
 import { notFound } from "next/navigation";
 import { isLocale, isSlug, slugs, locales } from "@/lib/i18n";
 import { metadata } from "@/lib/seo";
@@ -7,11 +9,13 @@ import { Menu, Wines } from "@/components/menus";
 import { EditorialPage } from "@/components/editorial-pages";
 export const revalidate = 60;
 export function generateStaticParams() {
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug: localizedSlug(locale, slug) })));
 }
 async function resolve(params: Promise<{ locale: string; slug: string }>) {
-  const { locale, slug } = await params;
-  if (!isLocale(locale) || !isSlug(slug)) notFound();
+  const { locale, slug: pathSlug } = await params;
+  if (!isLocale(locale)) notFound();
+  const slug = canonicalSlug(locale, pathSlug);
+  if (!isSlug(slug)) notFound();
   return { locale, slug };
 }
 export async function generateMetadata({
@@ -38,6 +42,7 @@ export default async function Page({
       ) : (
         <EditorialPage locale={locale} slug={slug} />
       )}
+      {["carte", "la-maison"].includes(slug) && <Atmosphere locale={locale} />}
       {![
         "vins",
         "contact",

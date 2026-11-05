@@ -65,3 +65,14 @@ test("request date uses the Paris calendar across midnight and DST", () => {
   assert.equal(parisToday(new Date("2026-11-04T23:30:00Z")), "2026-11-05");
   assert.equal(parisToday(new Date("2026-07-04T22:30:00Z")), "2026-07-05");
 });
+
+
+test("translated routes preserve equivalent pages in both directions", async () => {
+  const { href, canonicalSlug } = await import("../lib/format");
+  for (const [slug, english] of [["presse", "press"], ["recrutement", "careers"]]) {
+    assert.equal(href("fr", slug), `/fr/${slug}`);
+    assert.equal(href("en", slug), `/en/${english}`);
+    assert.equal(canonicalSlug("en", english), slug);
+    assert.equal(canonicalSlug("fr", slug), slug);
+  }
+});

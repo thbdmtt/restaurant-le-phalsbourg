@@ -73,3 +73,16 @@ Les builds Next.js et Cloudflare, le typage et les 14 tests unitaires passent. L
 Le domaine officiel n’a pas été basculé. La connexion Google Sheets et les informations légales de l’éditeur restent à renseigner avec les données du restaurant.
 
 La même recette a été exécutée sur l’URL Cloudflare publique : 20 pages, cinq largeurs, 20 audits d’accessibilité, aucune erreur. Ouverture du menu mobile, changement de langue, demandes par e-mail/copie et accès au PDF vérifiés.
+
+
+## Enrichissement photographique et éditorial
+
+L’accueil passe de six à dix-sept photographies, avec trois compositions dédiées à la cuisine, à la cave et aux trois membres de l’équipe. Une frise de cinq vues de l’atmosphère du bistrot est partagée avec les pages Carte et Maison. Huit originaux supplémentaires ont été optimisés, dont les emblèmes du Collège Culinaire de France et de Tables & Auberges. Les photographies sous le premier écran restent chargées à la demande.
+
+Les deux citations demandées et les trois emblèmes figurent dans la section « 04 — On parle de nous ». Un encart « Nous rejoindre » complète l’accueil. Les deux rubriques sont accessibles dans le header, le menu mobile et le footer. Les pages anglaises utilisent `/en/press` et `/en/careers`, avec redirections 308 des anciens chemins et correspondance FR/EN dans les métadonnées et le sélecteur.
+
+Le défaut `about:invalid#zCSafez` n’a pas été reproduit lors du contrôle initial de l’URL publique : le HTML serveur et le DOM navigateur contenaient déjà `tel:+33140570441`. La recette vérifie désormais explicitement cette valeur sur chaque page et refuse tout lien `about:invalid`.
+
+Validation : builds Next.js et Cloudflare, typage et 15 tests réussis. La recette locale des 20 pages couvre 320, 390, 768, 1280, 1440 et 3840 px, les photos, les liens téléphoniques, les routes traduites et 20 audits d’accessibilité. Captures régénérées et inspectées dans `review/`, notamment les séquences photographiques, le header à 1280 px et les pages mobiles.
+
+La recette complète a également réussi sur le site Cloudflare publié : 20 pages, six largeurs, 20 audits d’accessibilité et zéro erreur.

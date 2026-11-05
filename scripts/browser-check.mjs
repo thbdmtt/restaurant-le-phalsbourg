@@ -3,6 +3,8 @@ import AxeBuilder from "@axe-core/playwright";
 import { mkdir, writeFile } from "node:fs/promises";
 import assert from "node:assert/strict";
 const base = process.env.REVIEW_URL || "http://127.0.0.1:3100";
+const route = (locale, slug = "") => `/${locale}${slug ? "/" + (locale === "en" ? ({ presse: "press", recrutement: "careers" }[slug] || slug) : slug) : ""}`;
+const widths = [320, 390, 768, 1280, 1440, 3840];
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext();
 const page = await context.newPage();
@@ -56,9 +58,28 @@ await mkdir("review", { recursive: true });
 try {
   for (const locale of ["fr", "en"])
     for (const slug of paths) {
-      const url = `/${locale}${slug ? "/" + slug : ""}`;
+      const url = route(locale, slug);
       const response = await page.goto(base + url);
       assert.equal(response.status(), 200, url);
+      const html = await response.text();
+      assert.ok(!/href=["']about:invalid/i.test(html), `${url}: no rewritten telephone links`);
+      assert.ok((html.match(/href="tel:\+33140570441"/g) || []).length >= 2, `${url}: server-rendered phone links`);
+      await page.waitForLoadState("networkidle");
+      const telephone = page.locator('a[href^="tel:"]');
+      assert.ok(await telephone.count() >= 2, `${url}: footer and mobile phone links`);
+      assert.deepEqual(await telephone.evaluateAll(links => [...new Set(links.map(a => a.getAttribute("href")))]), ["tel:+33140570441"]);
+      assert.equal(await page.locator('a[href^="about:invalid"]').count(), 0);
+      assert.equal(await page.locator('.editorial-nav a').count(), 2);
+      if (!slug) {
+        assert.equal(await page.locator('.culinary-mosaic figure').count(), 3);
+        assert.equal(await page.locator('.cellar-triptych figure').count(), 3);
+        assert.equal(await page.locator('.house-portraits figure').count(), 4);
+        assert.equal(await page.locator('.press-excerpts blockquote').count(), 2);
+        assert.equal(await page.locator('.distinction-emblems img').count(), 3);
+        assert.equal(await page.locator('.press-feature > a').getAttribute('href'), route(locale, 'presse'));
+        assert.equal(await page.locator('.careers-feature a').getAttribute('href'), route(locale, 'recrutement'));
+      }
+      if (["", "carte", "la-maison"].includes(slug)) assert.equal(await page.locator('.atmosphere-frieze figure').count(), 5);
       assert.equal(await page.locator("h1").count(), 1, url);
       assert.equal(await page.locator("html").getAttribute("lang"), locale);
       assert.equal(
@@ -70,7 +91,7 @@ try {
         3,
       );
       await page.evaluate(() => document.fonts.ready);
-      for (const width of [320, 390, 768, 1440, 3840]) {
+      for (const width of widths) {
         await page.setViewportSize({ width, height: 900 });
         const dimensions = await page.evaluate(() => ({
           width: innerWidth,
@@ -97,7 +118,7 @@ try {
       "confidentialite",
     ]) {
       await page.setViewportSize({ width: 390, height: 844 });
-      await page.goto(`${base}/${locale}${slug ? "/" + slug : ""}`);
+      await page.goto(base + route(locale, slug));
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
         .analyze();
@@ -184,7 +205,7 @@ try {
     assert.ok(copied.includes("Déjeuner & vins\nSans noix"));
     await page.locator("summary").click();
     assert.ok(await page.locator("#enquiry-preview").isVisible());
-    await page.goto(base + `/${locale}/recrutement`);
+    await page.goto(base + route(locale, "recrutement"));
     assert.equal(await page.locator('input[name="guests"]').count(), 0);
     assert.equal(await page.locator('input[name="choice"]').count(), 4);
     await page.locator('input[name="name"]').fill("Élodie");
@@ -255,6 +276,18 @@ try {
     (await page.request.get(base + "/menus", { maxRedirects: 0 })).status(),
     308,
   );
+  for (const [from, to] of [["/en/presse", "/en/press"], ["/en/recrutement", "/en/careers"]]) {
+    const redirect = await page.request.get(base + from, { maxRedirects: 0 });
+    assert.equal(redirect.status(), 308);
+    assert.equal(new URL(redirect.headers().location, base).pathname, to);
+  }
+  for (const slug of ["presse", "recrutement"]) {
+    await page.goto(base + route("en", slug));
+    await page.locator('.header-actions .languages a[lang="fr"]').click();
+    await page.waitForURL(base + route("fr", slug));
+    await page.locator('.header-actions .languages a[lang="en"]').click();
+    await page.waitForURL(base + route("en", slug));
+  }
   assert.deepEqual(errors, []);
   await writeFile(
     "review/browser-report.json",
@@ -268,7 +301,7 @@ try {
   console.log(
     JSON.stringify({
       pages: report.pages.length,
-      widths: [320, 390, 768, 1440, 3840],
+      widths,
       accessibilityAudits: report.accessibility.length,
       errors: errors.length,
     }),

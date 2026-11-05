@@ -17,7 +17,7 @@ Node.js 22 recommandé. Le fichier de verrouillage npm fait référence. `next/f
 
 `lib/restaurant.ts` centralise adresse, téléphone, horaires, capacité (60 convives), GPS, Zenchef et PDF. `locales/fr.json` et `locales/en.json` contiennent les textes et libellés. Même structure contrôlée par test. La marque reste Le Phalsbourg dans les deux langues.
 
-Les routes sont `/fr` et `/en`, puis `/carte`, `/vins`, `/la-maison`, `/privatisation`, `/contact`, `/presse`, `/recrutement`, `/mentions-legales`, `/confidentialite`. Le sélecteur FR/EN conserve le même chemin. `/` redirige en 308 vers `/fr`. Les URL Wix historiques redirigent vers leur équivalent, y compris les menus avec paramètre de requête. Les slugs restent identiques en FR/EN pour faciliter la maintenance.
+Les routes sont `/fr` et `/en`, puis `/carte`, `/vins`, `/la-maison`, `/privatisation`, `/contact`, `/presse`, `/recrutement`, `/mentions-legales`, `/confidentialite`. Le sélecteur FR/EN conserve le même chemin. `/` redirige en 308 vers `/fr`. Les URL Wix historiques redirigent vers leur équivalent, y compris les menus avec paramètre de requête. Les pages presse et recrutement utilisent `/en/press` et `/en/careers` en anglais, avec des redirections permanentes depuis les anciens slugs. Les autres slugs restent communs.
 
 ## Modifier la cuisine et les vins dans Google Sheets
 
@@ -103,3 +103,12 @@ Les pushes et pull requests GitHub lancent les tests, les deux compilations et l
 Pour Google Sheets sur Workers, configurer les variables serveur via les bindings de configuration ou les secrets Cloudflare. Le cache KV du framework ne remplace pas la sauvegarde applicative des derniers menus valides : pour conserver ces sauvegardes entre instances, le connecteur prend actuellement en charge Upstash Redis REST. Le disque local `.menu-cache/` est destiné au serveur Node, pas au stockage durable Workers. Sans feuille configurée, les données locales embarquées sont immédiatement disponibles.
 
 L’archive source, les captures de recette, les identifiants Cloudflare et les fichiers de build sont exclus du dépôt.
+
+
+## Photographies et enrichissement éditorial
+
+L’accueil présente une composition de trois photos culinaires, trois flacons, les portraits de Matthieu Fève, Ahmed Kawsar et Archibald Franquinet, une frise de cinq vues du bistrot et les trois emblèmes de distinction. La frise figure aussi sur la carte et la page Maison. Les citations de Gilles Pudlowski et de Corneille (cité par Rémi Déchambre) sont rétablies sur l’accueil, avec une traduction anglaise. Un encart de recrutement et une navigation éditoriale complètent le parcours.
+
+`components/editorial-sequences.tsx` rassemble les sections partagées. Huit médias supplémentaires ont été récupérés depuis les originaux Wix listés dans l’archive, puis optimisés en AVIF/WebP par `scripts/enrich-assets.mjs` ; ce script de préparation nécessite l’archive locale. Tous les fichiers utiles à l’affichage sont publiés dans `public/images/`.
+
+La recette navigateur vérifie le téléphone exact `tel:+33140570441` dans le HTML serveur et dans le DOM après chargement, sur chaque page. Elle contrôle aussi les routes anglaises, les redirections, les liens de langue et six largeurs (320, 390, 768, 1280, 1440, 3840 px).

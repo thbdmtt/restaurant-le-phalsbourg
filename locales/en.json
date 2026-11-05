@@ -6,7 +6,7 @@
     "la-maison": "Our story",
     "privatisation": "Private dining",
     "contact": "Find us",
-    "presse": "In the press",
+    "presse": "Press & Reviews",
     "recrutement": "Join the team",
     "mentions-legales": "Legal notice",
     "confidentialite": "Privacy"
@@ -68,7 +68,8 @@
     "sinceLabel": "Paris 17 · Monceau neighbourhood",
     "homeLabel": "Le Phalsbourg, home",
     "menuNav": "Browse the menu",
-    "scroll": "Scroll to discover"
+    "scroll": "Scroll to discover",
+    "editorialNav": "More from Le Phalsbourg"
   },
   "home": {
     "eyebrow": "THE BISTRO · THE WINE · THE COMPANY",
@@ -185,7 +186,7 @@
       "titleItalic": "A lovely time."
     },
     "presse": {
-      "eyebrow": "IN THE PRESS",
+      "eyebrow": "Press & Reviews",
       "title": "Words that mean a lot.",
       "intro": "Restaurant reviews and happy discoveries: a few glimpses of life at Le Phalsbourg.",
       "pudloTitle": "Petit Pudlo 2024–2025",
@@ -261,7 +262,15 @@
     "matthieu-feve": "Matthieu Fève outside Le Phalsbourg",
     "ahmed-kawsar": "Ahmed Kawsar outside Le Phalsbourg",
     "archibald-franquinet": "Archibald Franquinet outside Le Phalsbourg",
-    "pudlo-2026": "Trophées Pudlo des Bistrots 2026 badge"
+    "pudlo-2026": "Trophées Pudlo des Bistrots 2026 badge",
+    "feuillete-service": "A golden pastry with sauce being poured at service",
+    "vin-montcalmes": "A bottle of Domaine de Montcalmès Terrasses du Larzac 2018",
+    "facade-soir": "The illuminated entrance to Le Phalsbourg at dusk",
+    "detail-banquette": "Red banquette and chalkboard in the dining room at Le Phalsbourg",
+    "geste-cuisine": "A cook preparing for service at Le Phalsbourg",
+    "salle-bouteilles": "Bistrot tables beneath shelves lined with wine bottles",
+    "tables-auberges": "Tables & Auberges de France emblem",
+    "college-culinaire": "Collège Culinaire de France emblem"
   },
   "seo": {
     "homeTitle": "Le Phalsbourg — French bistro & wine in Paris 17",
@@ -285,7 +294,7 @@
     "table": "01 — AT THE TABLE",
     "cellar": "02 — IN THE CELLAR",
     "house": "03 — OUR HOUSE",
-    "gather": "04 — YOUR OCCASIONS",
+    "gather": "05 — YOUR OCCASIONS",
     "menuNote": "A few seasonal favourites",
     "menuCaption": "Good ingredients. Thoughtful cooking.",
     "tableTitle": "On the plate,",
@@ -392,5 +401,42 @@
     "summary": "Your occasion",
     "capacity": "Up to {capacity} guests",
     "minimumDate": "Please choose today or a future date."
+  },
+  "enrichment": {
+    "pressLabel": "04 — PRESS & REVIEWS",
+    "pressTitle": "A few words",
+    "pressItalic": "that mean so much.",
+    "pressLink": "Explore all the articles",
+    "quotes": [
+      {
+        "text": "A new place with the feel of an old meeting spot for friends.",
+        "author": "Gilles Pudlowski",
+        "publication": "Le Petit Pudlo"
+      },
+      {
+        "text": "For noble souls, worth does not wait upon the passing of years.",
+        "author": "Corneille, quoted by Rémi Déchambre",
+        "publication": "Le Parisien"
+      }
+    ],
+    "atmosphereLabel": "MOMENTS AT LE PHALSBOURG",
+    "atmosphereTitle": "The spirit",
+    "atmosphereItalic": "of the bistrot.",
+    "atmosphereText": "A red awning, the clink of glasses, the finishing touches in the kitchen. And the pleasure of being together.",
+    "careersLabel": "LIFE AT THE BISTROT",
+    "careersTitle": "Would you like to",
+    "careersItalic": "join our team?",
+    "careersText": "In the kitchen and front of house, we share a love of our craft, a passion for wine and the pleasure of making guests feel at home. Let’s get to know one another.",
+    "careersLink": "Join the team — Apply",
+    "captions": {
+      "cuisine-dressage": "The finishing touch, before service.",
+      "assiette-saison": "The season, on a plate.",
+      "feuillete-service": "Fresh from the oven.",
+      "facade-soir": "The bistrot, ready for dinner.",
+      "terrasse-paris": "A table on rue de Phalsbourg.",
+      "detail-banquette": "The warmth of red banquettes.",
+      "geste-cuisine": "Behind the scenes in the kitchen.",
+      "salle-bouteilles": "Bottles keeping watch over the dining room."
+    }
   }
 }

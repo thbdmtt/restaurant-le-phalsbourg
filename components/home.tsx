@@ -7,6 +7,7 @@ import {
 } from "@/lib/i18n";
 import { restaurant } from "@/lib/restaurant";
 import { getMenu } from "@/lib/menu-sheet";
+import { Atmosphere, PressFeature, CareersFeature } from "./editorial-sequences";
 import { Photo, ArrowLink, Visit } from "./shared";
 export async function Home({ locale }: { locale: Locale }) {
   const d = getDictionary(locale),
@@ -85,14 +86,14 @@ export async function Home({ locale }: { locale: Locale }) {
           <p>{h.foodText}</p>
         </div>
         <div className="season-layout">
-          <figure className="season-photo">
-            <Photo
-              name="assiette-saison"
-              locale={locale}
-              sizes="(max-width:760px) 90vw, 36vw"
-            />
-            <figcaption>{e.menuCaption}</figcaption>
-          </figure>
+          <div className="culinary-mosaic">
+            {(["cuisine-dressage", "assiette-saison", "feuillete-service"] as const).map((name) => (
+              <figure key={name}>
+                <Photo name={name} locale={locale} sizes="(max-width:760px) 90vw, 30vw" />
+                <figcaption>{d.enrichment.captions[name]}</figcaption>
+              </figure>
+            ))}
+          </div>
           <div className="season-menu">
             <p className="eyebrow">{e.menuNote}</p>
             {sample.map((item, i) => (
@@ -131,14 +132,18 @@ export async function Home({ locale }: { locale: Locale }) {
               <span>{d.ui.wineCount}</span>
             </div>
           </div>
-          <figure className="cellar-photo">
-            <Photo
-              name="vin-dagueneau"
-              locale={locale}
-              sizes="(max-width:760px) 65vw, 38vw"
-            />
-            <figcaption>Didier Dagueneau · Blanc Etc…</figcaption>
-          </figure>
+          <div className="cellar-triptych">
+            {[
+              ["vin-dagueneau", "Didier Dagueneau · Blanc Etc…"],
+              ["vin-jobard", "Claudie Jobard · Montagny"],
+              ["vin-montcalmes", "Montcalmès · Terrasses du Larzac"],
+            ].map(([name, caption]) => (
+              <figure key={name}>
+                <Photo name={name} locale={locale} sizes="(max-width:760px) 44vw, 22vw" />
+                <figcaption>{caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
       <section className="house-feature container" data-reveal>
@@ -154,42 +159,21 @@ export async function Home({ locale }: { locale: Locale }) {
             {d.ui.discover}
           </ArrowLink>
         </div>
-        <figure className="house-portrait">
-          <Photo
-            name="matthieu-feve"
-            locale={locale}
-            sizes="(max-width:760px) 44vw, (max-width:1150px) 42vw, 28vw"
-          />
-          <figcaption>{e.photoTeam}</figcaption>
-        </figure>
-        <figure className="house-room">
-          <Photo
-            name="salle-banquettes-rouges"
-            locale={locale}
-            sizes="(max-width:760px) 44vw, 30vw"
-          />
-          <figcaption>{e.photoHouse}</figcaption>
-        </figure>
-      </section>
-      <section className="recognition-strip container" aria-label={e.seals}>
-        <Photo name="pudlo-2026" locale={locale} sizes="96px" />
-        <div>
-          <p className="eyebrow">{e.seals}</p>
-          <p className="recognition-names">
-            <span>Trophées Pudlo</span>
-            <span>
-              Collège Culinaire
-              <br />
-              de France
-            </span>
-            <span>
-              Tables & Auberges
-              <br />
-              de France
-            </span>
-          </p>
+        <div className="house-portraits">
+          {d.pages["la-maison"].team.map((person) => (
+            <figure key={person.image}>
+              <Photo name={person.image} locale={locale} sizes="(max-width:760px) 42vw, 23vw" />
+              <figcaption>{person.name}<span>{person.role}</span></figcaption>
+            </figure>
+          ))}
+          <figure className="house-panorama">
+            <Photo name="salle-banquettes-rouges" locale={locale} sizes="(max-width:760px) 90vw, 64vw" />
+            <figcaption>{e.photoHouse}</figcaption>
+          </figure>
         </div>
       </section>
+      <Atmosphere locale={locale} />
+      <PressFeature locale={locale} />
       <section className="private-feature container" data-reveal>
         <figure>
           <Photo name="reception-privee" locale={locale} />
@@ -208,6 +192,7 @@ export async function Home({ locale }: { locale: Locale }) {
           </ArrowLink>
         </div>
       </section>
+      <CareersFeature locale={locale} />
       <Visit locale={locale} />
     </>
   );

@@ -142,5 +142,77 @@
     "originalHeight": 827,
     "width": 827,
     "height": 827
+  },
+  {
+    "file": "feuillete-service.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_2e5693c77ad340bda967e6db146b1419~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1080,
+    "originalHeight": 1620,
+    "width": 1080,
+    "height": 1620
+  },
+  {
+    "file": "vin-montcalmes.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_fa93cef30e1f493da7b484544c18bcf8~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1080,
+    "originalHeight": 1620,
+    "width": 1080,
+    "height": 1620
+  },
+  {
+    "file": "facade-soir.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_c48231cf8b4e4bb2b40228a1d35a04d0~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1080,
+    "originalHeight": 1620,
+    "width": 1080,
+    "height": 1620
+  },
+  {
+    "file": "detail-banquette.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_5faa48de124f4accbd15bb10f1a2fcfa~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1620,
+    "originalHeight": 1080,
+    "width": 1620,
+    "height": 1080
+  },
+  {
+    "file": "geste-cuisine.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_1a5754d4518943f18b94d4e13a3b2aca~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1080,
+    "originalHeight": 1620,
+    "width": 1080,
+    "height": 1620
+  },
+  {
+    "file": "salle-bouteilles.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_9a548313abc64391a042279f8376a859~mv2.jpg",
+    "origin": "original",
+    "originalWidth": 1620,
+    "originalHeight": 1080,
+    "width": 1620,
+    "height": 1080
+  },
+  {
+    "file": "tables-auberges.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_bf789e80242f4e22bba660221569a94a~mv2.png",
+    "origin": "original",
+    "originalWidth": 801,
+    "originalHeight": 801,
+    "width": 801,
+    "height": 801
+  },
+  {
+    "file": "college-culinaire.webp",
+    "source": "https://static.wixstatic.com/media/fa6642_d744e1434a364b46b305797e59626964~mv2.png",
+    "origin": "original",
+    "originalWidth": 1766,
+    "originalHeight": 1066,
+    "width": 1766,
+    "height": 1066
   }
 ]

@@ -6,7 +6,7 @@
     "la-maison": "La maison",
     "privatisation": "Privatisation",
     "contact": "Nous trouver",
-    "presse": "La presse",
+    "presse": "On parle de nous",
     "recrutement": "Nous rejoindre",
     "mentions-legales": "Mentions légales",
     "confidentialite": "Confidentialité"
@@ -68,7 +68,8 @@
     "sinceLabel": "Paris 17e · Quartier Monceau",
     "homeLabel": "Le Phalsbourg, accueil",
     "menuNav": "Parcourir la carte",
-    "scroll": "Défiler pour découvrir"
+    "scroll": "Défiler pour découvrir",
+    "editorialNav": "La vie de la maison"
   },
   "home": {
     "eyebrow": "LE BISTROT · LE VIN · LES AMIS",
@@ -185,7 +186,7 @@
       "titleItalic": "de bons moments."
     },
     "presse": {
-      "eyebrow": "ILS PARLENT DE NOUS",
+      "eyebrow": "On parle de nous",
       "title": "Les mots qui font plaisir.",
       "intro": "Regards de critiques et découvertes gourmandes : quelques échos de la vie du Phalsbourg.",
       "pudloTitle": "Petit Pudlo 2024–2025",
@@ -261,7 +262,15 @@
     "matthieu-feve": "Matthieu Fève devant Le Phalsbourg",
     "ahmed-kawsar": "Ahmed Kawsar devant Le Phalsbourg",
     "archibald-franquinet": "Archibald Franquinet devant Le Phalsbourg",
-    "pudlo-2026": "Macaron Trophées Pudlo des Bistrots 2026"
+    "pudlo-2026": "Macaron Trophées Pudlo des Bistrots 2026",
+    "feuillete-service": "Un feuilleté doré, accompagné de sa sauce au moment du service",
+    "vin-montcalmes": "Bouteille de Terrasses du Larzac 2018 du domaine de Montcalmès",
+    "facade-soir": "La façade éclairée du Phalsbourg à la tombée du jour",
+    "detail-banquette": "Banquette rouge et ardoise dans la salle du Phalsbourg",
+    "geste-cuisine": "Un cuisinier prépare le service au Phalsbourg",
+    "salle-bouteilles": "Les tables du bistrot et les bouteilles alignées sur les étagères",
+    "tables-auberges": "Emblème Tables & Auberges de France",
+    "college-culinaire": "Emblème du Collège Culinaire de France"
   },
   "seo": {
     "homeTitle": "Le Phalsbourg — Bistrot français & vins à Paris 17",
@@ -285,7 +294,7 @@
     "table": "01 — À LA TABLE",
     "cellar": "02 — DANS LA CAVE",
     "house": "03 — LA MAISON",
-    "gather": "04 — VOS RENDEZ-VOUS",
+    "gather": "05 — VOS RENDEZ-VOUS",
     "menuNote": "Quelques envies de saison",
     "menuCaption": "Des produits, des gestes, du goût.",
     "tableTitle": "L’assiette,",
@@ -392,5 +401,42 @@
     "summary": "Votre projet",
     "capacity": "Jusqu’à {capacity} convives",
     "minimumDate": "La date doit être aujourd’hui ou dans le futur."
+  },
+  "enrichment": {
+    "pressLabel": "04 — ON PARLE DE NOUS",
+    "pressTitle": "Les mots",
+    "pressItalic": "qui nous touchent.",
+    "pressLink": "Découvrir tous les articles",
+    "quotes": [
+      {
+        "text": "Un lieu neuf aux airs de vieux rendez-vous d'amis.",
+        "author": "Gilles Pudlowski",
+        "publication": "Le Petit Pudlo"
+      },
+      {
+        "text": "Aux âmes bien nées, la valeur n'attend point le nombre des années.",
+        "author": "Corneille, cité par Rémi Déchambre",
+        "publication": "Le Parisien"
+      }
+    ],
+    "atmosphereLabel": "INSTANTS DE MAISON",
+    "atmosphereTitle": "L’atmosphère",
+    "atmosphereItalic": "du bistrot.",
+    "atmosphereText": "Un store rouge, le bruit des verres, les derniers gestes en cuisine. Et le plaisir de se retrouver.",
+    "careersLabel": "LES MÉTIERS DU BISTROT",
+    "careersTitle": "Envie de rejoindre",
+    "careersItalic": "l’équipe ?",
+    "careersText": "En cuisine ou en salle, nous partageons le goût du métier, la passion du vin et le plaisir de bien accueillir. Faisons connaissance.",
+    "careersLink": "Nous rejoindre — Postuler",
+    "captions": {
+      "cuisine-dressage": "Le geste juste, avant l’envoi.",
+      "assiette-saison": "La saison dans l’assiette.",
+      "feuillete-service": "À la sortie du four.",
+      "facade-soir": "La maison, à l’heure du dîner.",
+      "terrasse-paris": "Une table côté rue de Phalsbourg.",
+      "detail-banquette": "Le rouge des banquettes.",
+      "geste-cuisine": "Dans les coulisses du service.",
+      "salle-bouteilles": "Les flacons veillent sur la salle."
+    }
   }
 }

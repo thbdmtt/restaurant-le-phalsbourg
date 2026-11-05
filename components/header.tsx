@@ -55,6 +55,7 @@ export function Header({
           alt="Le Phalsbourg"
         />
       </a>
+      <div className="desktop-navigation">
       <nav className="desktop-nav" aria-label={ui.mainNav}>
         {pages.map((s) => (
           <a
@@ -66,6 +67,14 @@ export function Header({
           </a>
         ))}
       </nav>
+      <nav className="editorial-nav" aria-label={ui.editorialNav}>
+        {(["presse", "recrutement"] as const).map((s) => (
+          <a key={s} href={href(locale, s)} aria-current={slug === s ? "page" : undefined}>
+            {nav[s]} <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </nav>
+      </div>
       <div className="header-actions">
         {languages}
         <a className="button compact header-book" href={restaurant.reservation}>

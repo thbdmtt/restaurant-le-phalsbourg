@@ -3003,3 +3003,91 @@ html:has(.mobile-dialog[open]) {
     aspect-ratio: 4 / 5;
   }
 }
+
+/* Photographic essays and the life of the house. */
+.desktop-navigation { display: flex; flex-direction: column; align-items: center; }
+.editorial-nav { display: flex; gap: 28px; border-top: 1px solid var(--line); }
+.editorial-nav a { display: flex; align-items: center; gap: 14px; min-height: 48px; font-size: 11px; }
+.editorial-nav a[aria-current], .editorial-nav a:hover { color: var(--red); }
+@media (min-width: 961px) { :root { --header-height: 112px; } .site-header { gap: 22px; } .desktop-nav { gap: clamp(14px, 1.7vw, 26px); } }
+@media (max-width: 960px) { .desktop-navigation { display: none; } }
+.season-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7%; }
+.culinary-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 18px; align-items: start; }
+.culinary-mosaic figure:first-child { grid-column: 1 / -1; }
+.culinary-mosaic figure:first-child > .photo { aspect-ratio: 3 / 2; }
+.culinary-mosaic figure:not(:first-child) > .photo { aspect-ratio: 4 / 5; }
+.culinary-mosaic figure:last-child { padding-top: 36px; }
+.cellar-layout { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6%; align-items: center; }
+.cellar-triptych { display: grid; grid-template-columns: 1.15fr 1fr; align-items: start; gap: 26px 22px; }
+.cellar-triptych figure:first-child { grid-row: span 2; padding-top: 70px; }
+.cellar-triptych figure > .photo { aspect-ratio: 4 / 5; }
+.cellar-triptych figure:first-child > .photo { aspect-ratio: 2 / 3; }
+.cellar-triptych figcaption { color: #c5beaf; font-size: 10px; }
+.house-feature { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 6%; }
+.house-heading { position: sticky; top: calc(var(--header-height) + 32px); }
+.house-portraits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 18px; }
+.house-portraits figure > .photo { aspect-ratio: 3 / 4; }
+.house-portraits figure:nth-child(2) { padding-top: 42px; }
+.house-portraits figure:nth-child(3) { padding-top: 84px; }
+.house-portraits figcaption { line-height: 1.6; }
+.house-portraits figcaption span { display: block; color: var(--muted); font-size: 10px; }
+.house-portraits .house-panorama { grid-column: 1 / -1; }
+.house-portraits .house-panorama > .photo { aspect-ratio: 2.5 / 1; }
+.atmosphere { padding-block: 40px var(--section); }
+.atmosphere-heading { display: grid; grid-template-columns: 1.4fr 1fr; gap: 8%; align-items: end; margin-bottom: 44px; }
+.atmosphere-heading h2 { font-size: clamp(42px, 4.5vw, 68px); }
+.atmosphere-heading h2 em { display: block; }
+.atmosphere-heading > p { max-width: 380px; margin: 0; font-size: 14px; }
+.atmosphere-frieze { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px 24px; align-items: start; }
+.atmosphere-frieze figure > .photo { aspect-ratio: 4 / 3; }
+.atmosphere-frieze figure:first-child { grid-row: span 2; }
+.atmosphere-frieze figure:first-child > .photo { aspect-ratio: 3 / 4; }
+.atmosphere-frieze figure:nth-child(3) { padding-top: 40px; }
+.atmosphere-frieze figure:nth-child(4) { margin-top: -20px; }
+.atmosphere-frieze figcaption { font-size: 11px; line-height: 1.7; }
+.atmosphere-frieze figcaption span { color: var(--red); font-variant-numeric: tabular-nums; }
+.press-feature { padding-block: var(--section); border-block: 1px solid var(--line); }
+.press-feature-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7%; }
+.press-feature h2, .careers-feature h2 { font-size: clamp(42px, 4.5vw, 68px); }
+.distinction-emblems { display: flex; justify-content: space-around; align-items: center; gap: 24px; }
+.distinction-emblems > .photo { width: min(28%, 150px); aspect-ratio: 1; }
+.distinction-emblems .photo img { object-fit: contain; width: 100%; height: 100%; }
+.press-excerpts { display: grid; grid-template-columns: 1fr 1fr; gap: 7%; margin-block: 64px 36px; }
+.press-excerpts figure + figure { border-left: 1px solid var(--line); padding-left: 12%; }
+.press-excerpts blockquote { margin: 0; }
+.press-excerpts blockquote p { font-family: var(--font-editorial), serif; font-size: clamp(30px, 3vw, 44px); line-height: 1.16; margin: 0 0 24px; }
+.press-excerpts figcaption { color: var(--charcoal); font-size: 12px; line-height: 1.7; }
+.press-excerpts cite { display: block; color: var(--muted); }
+.careers-feature { border-block: 3px double var(--line); padding-block: 48px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 10%; }
+.careers-feature > div > p:not(.eyebrow) { max-width: 420px; font-size: 15px; }
+.recognition .distinction-emblems { flex: 1; min-width: 220px; }
+@media (max-width: 1150px) and (min-width: 761px) { .house-heading { grid-column: auto; grid-row: auto; } .house-feature { gap: 4%; } }
+@media (max-width: 760px) {
+  .season-layout { grid-template-columns: 1fr; gap: 36px; }
+  .culinary-mosaic { gap: 18px 12px; }
+  .culinary-mosaic figure:last-child { padding-top: 24px; }
+  .culinary-mosaic figcaption { font-size: 10px; }
+  .cellar-layout { grid-template-columns: 1fr; gap: 40px; }
+  .cellar-triptych { gap: 22px 14px; }
+  .cellar-triptych figure:first-child { padding-top: 45px; }
+  .house-feature { display: block; }
+  .house-heading { position: static; padding: 0 0 36px; }
+  .house-portraits { grid-template-columns: 1fr 1fr; gap: 24px 14px; }
+  .house-portraits figure:nth-child(3) { padding-top: 0; }
+  .house-portraits .house-panorama { grid-column: 2; padding-top: 42px; }
+  .house-portraits .house-panorama > .photo { aspect-ratio: 3 / 4; }
+  .house-feature figcaption { font-size: 11px; }
+  .atmosphere-heading, .press-feature-heading, .careers-feature { grid-template-columns: 1fr; gap: 28px; }
+  .atmosphere { padding-top: 0; }
+  .atmosphere-frieze { grid-template-columns: 1fr 1fr; gap: 26px 14px; }
+  .atmosphere-frieze figure:first-child { grid-column: 1 / -1; grid-row: auto; }
+  .atmosphere-frieze figure:first-child > .photo { aspect-ratio: 4 / 3; }
+  .atmosphere-frieze figure:not(:first-child) > .photo { aspect-ratio: 3 / 4; }
+  .atmosphere-frieze figure:nth-child(3) { padding-top: 32px; }
+  .atmosphere-frieze figure:nth-child(4) { margin-top: -16px; }
+  .press-excerpts { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+  .press-excerpts figure + figure { padding: 28px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .distinction-emblems { gap: 16px; justify-content: space-between; }
+  .distinction-emblems > .photo { max-width: 110px; }
+  .recognition .distinction-emblems { min-width: 0; width: 100%; }
+}

@@ -1,6 +1,7 @@
 import { getDictionary, interpolate, type Locale, type Slug } from "@/lib/i18n";
 import { restaurant } from "@/lib/restaurant";
 import { EnquiryComposer } from "./enquiry-composer";
+import { Distinctions } from "./editorial-sequences";
 import { Photo, OpeningHours, ArrowLink } from "./shared";
 export function EditorialPage({
   locale,
@@ -160,7 +161,7 @@ export function EditorialPage({
           </article>
         ))}
         <div className="recognition">
-          <Photo name="pudlo-2026" locale={locale} sizes="160px" />
+          <Distinctions locale={locale} />
           <div>
             <h2>{p.recognition}</h2>
             <p>{p.recognitionText}</p>

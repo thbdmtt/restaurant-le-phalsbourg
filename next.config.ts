@@ -18,6 +18,8 @@ const config: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/en/presse", destination: "/en/press", permanent: true },
+      { source: "/en/recrutement", destination: "/en/careers", permanent: true },
       { source: "/", destination: "/fr", permanent: true },
       ...Object.entries(legacy).flatMap(([from, to]) => [
         { source: `/${from}`, destination: `/fr/${to}`, permanent: true },
@@ -25,7 +27,7 @@ const config: NextConfig = {
           ? [
               {
                 source: `/en/${from}`,
-                destination: `/en/${to}`,
+                destination: `/en/${to === "presse" ? "press" : to === "recrutement" ? "careers" : to}`,
                 permanent: true,
               },
             ]
