@@ -33,11 +33,14 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".cloudflare/types"
   ],
   "exclude": [
     "node_modules",
     "_scrape_archive",
-    "review"
+    "review",
+    ".cloudflare/output",
+    "dist"
   ]
 }

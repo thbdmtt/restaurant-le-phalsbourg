@@ -51,8 +51,9 @@ async function redis(command: string[]): Promise<unknown> {
     signal: AbortSignal.timeout(3000),
   });
   if (!response.ok) throw new Error("Cache unavailable");
-  const data = await response.json();
-  if (data.error) throw new Error("Cache unavailable");
+  const data: unknown = await response.json();
+  if (!data || typeof data !== "object" || "error" in data || !("result" in data))
+    throw new Error("Cache unavailable");
   return data.result;
 }
 function validSnapshot(value: unknown, source: string): value is Snapshot {

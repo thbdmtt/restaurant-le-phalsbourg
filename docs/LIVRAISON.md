@@ -62,3 +62,14 @@ La relecture à 768 px a permis de corriger une colonne implicite dans la compos
 - `README.md` et `.env.example` : configuration CSV/API, cache persistant et exploitation.
 
 Aucune feuille Google réelle n’a été fournie ou créée : les données locales restent utilisées. Les variables `LEGAL_*` doivent toujours être renseignées avant publication publique ; ces informations ne sont pas inventées. Les demandes ouvrent la messagerie ou se copient, sans transmission automatique ni conservation. Aucun déploiement public n’a été effectué.
+
+
+## Publication du 5 novembre 2026
+
+Code publié sur https://github.com/thbdmtt/restaurant-le-phalsbourg et site sur https://restaurant-le-phalsbourg.thbdmtt.workers.dev/fr. Hébergement Cloudflare Workers (vinext), cache de réponses Workers Cache et cache de données KV. La page des vins épurée conserve la photo et les deux actions de consultation/téléchargement du PDF.
+
+Les builds Next.js et Cloudflare, le typage et les 14 tests unitaires passent. La recette navigateur sur le Worker local couvre les 20 pages, cinq largeurs de 320 à 3840 px et 20 audits d’accessibilité, sans erreur détectée. L’audit npm après les correctifs Vite et fflate indique zéro vulnérabilité connue. Les scores Lighthouse antérieurs restent des mesures de la version Next.js locale ; ils ne constituent pas une mesure du déploiement Cloudflare.
+
+Le domaine officiel n’a pas été basculé. La connexion Google Sheets et les informations légales de l’éditeur restent à renseigner avec les données du restaurant.
+
+La même recette a été exécutée sur l’URL Cloudflare publique : 20 pages, cinq largeurs, 20 audits d’accessibilité, aucune erreur. Ouverture du menu mobile, changement de langue, demandes par e-mail/copie et accès au PDF vérifiés.

@@ -61,7 +61,7 @@ Les métadonnées canonical/hreflang sont propres à chaque page. Le JSON-LD Res
 
 **À compléter avant publication publique :** renseigner dans l’environnement les informations légales exactes de l’éditeur, du directeur de publication et de l’hébergeur (`LEGAL_*` dans `.env.example`). Elles ne figurent pas dans le scrape et ne sont pas inventées. La page de mentions légales est provisoirement `noindex` et exclue du sitemap ; une fois complète, retirer cette exception dans `lib/seo.ts` et `app/sitemap.ts`. La politique de confidentialité décrit les traitements effectivement intégrés ; adapter avec les pratiques de conservation du restaurant et les conditions de l’hébergeur choisi.
 
-Aucun service Google Sheets réel n’est configuré par défaut et aucun déploiement public n’est effectué. Le site fonctionne immédiatement sur les fallbacks.
+Aucun service Google Sheets réel n’est configuré par défaut. Le site publié fonctionne sur les fallbacks, jusqu’à configuration de la feuille du restaurant.
 
 ## Vérification
 
@@ -79,3 +79,27 @@ La direction artistique est documentée dans `docs/DIRECTION-ARTISTIQUE.md` : pa
 - `scripts/optimize-hero.mjs` : variantes du hero préchargé.
 
 Les mesures et limites de recette figurent dans `docs/LIVRAISON.md`.
+
+
+## Publication GitHub et Cloudflare
+
+- Code : https://github.com/thbdmtt/restaurant-le-phalsbourg
+- Site : https://restaurant-le-phalsbourg.thbdmtt.workers.dev/fr
+- Version anglaise : https://restaurant-le-phalsbourg.thbdmtt.workers.dev/en
+
+Le site est hébergé sur Cloudflare Workers avec vinext. Le projet Next.js reste utilisable avec les commandes originales. `cloudflare.config.ts` définit le Worker, le cache de réponses Workers Cache et le cache de données du framework dans Workers KV. Les images AVIF/WebP sont préoptimisées et les polices sont auto-hébergées. Les journaux et traces Cloudflare sont activés. Aucun domaine personnalisé ni DNS du restaurant n’a été modifié ; les URL canoniques conservent le domaine officiel défini dans `lib/restaurant.ts`.
+
+```sh
+npm ci
+npx cf auth login
+npm run deploy:vinext -- --dry-run
+npm run deploy:vinext
+```
+
+Prévisualisation du Worker : `npm run build:vinext`, puis `npm run start:vinext -- --port 3101`. Utiliser `REVIEW_URL=http://localhost:3101 npm run test:browser`. `npm run typecheck` régénère les types Next.js, car les deux moteurs produisent des types de routes dans `.next/`.
+
+Les pushes et pull requests GitHub lancent les tests, les deux compilations et le typage. La publication Cloudflare est déclenchée séparément par `npm run deploy:vinext` depuis un poste connecté au compte Cloudflare ; le workflow GitHub ne contient aucun jeton de déploiement.
+
+Pour Google Sheets sur Workers, configurer les variables serveur via les bindings de configuration ou les secrets Cloudflare. Le cache KV du framework ne remplace pas la sauvegarde applicative des derniers menus valides : pour conserver ces sauvegardes entre instances, le connecteur prend actuellement en charge Upstash Redis REST. Le disque local `.menu-cache/` est destiné au serveur Node, pas au stockage durable Workers. Sans feuille configurée, les données locales embarquées sont immédiatement disponibles.
+
+L’archive source, les captures de recette, les identifiants Cloudflare et les fichiers de build sont exclus du dépôt.
